@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- launchd agent: runs tldiff once a day at 23:30 local time.
+     Install:  cp this file to ~/Library/LaunchAgents/ then
+               launchctl load ~/Library/LaunchAgents/com.terrance.tldiff.plist
+     Unload:   launchctl unload ~/Library/LaunchAgents/com.terrance.tldiff.plist -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.terrance.tldiff</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/terrance/Projects/tldiff/run.sh</string>
+    </array>
+
+    <!-- 23:30 every day. If the Mac is asleep at that time, launchd runs it on wake. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key><integer>23</integer>
+        <key>Minute</key><integer>30</integer>
+    </dict>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/terrance/Projects/tldiff/logs/launchd.err</string>
+    <key>StandardOutPath</key>
+    <string>/Users/terrance/Projects/tldiff/logs/launchd.out</string>
+</dict>
+</plist>

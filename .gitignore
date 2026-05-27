@@ -1,0 +1,7 @@
+# uv creates this locally; uv.lock is committed instead.
+.venv/
+
+# runtime output
+logs/
+__pycache__/
+*.pyc

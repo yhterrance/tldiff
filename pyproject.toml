@@ -1,0 +1,12 @@
+[project]
+name = "tldiff"
+version = "0.1.0"
+description = "tldiff — daily TL;DR of lines added/deleted across everything you authored on GitHub"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31",
+]
+
+[tool.uv]
+# Flat script, not an installable package — don't try to build it.
+package = false
